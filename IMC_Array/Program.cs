@@ -10,23 +10,73 @@ namespace IMC_Array
     {
         static void Main(string[] args)
         {
-            String[] nome = new String[5];
-            double[] peso = new double[5];
-            double[] altura = new double[5];
 
-        for (int i = 0; i <= 4; i++)
+            int[] peso = new int[5];
+            double[] altura = new double[5];
+            string[] nome = new string[5];
+            int count = 0;
+
+
+            for (int i = 0; i <= 4; i++)
             {
-                Console.Write("Digite seu nome: ");
+                Console.WriteLine("Digite o nome:");
                 nome[i] = Console.ReadLine();
 
-                Console.Write("Informe o seu peso: ");
-                peso[i] = double.Parse(Console.ReadLine());
+                Console.WriteLine("Digite o peso:");
+                peso[i] = int.Parse(Console.ReadLine());
 
-                Console.Write("Informe a sua altura: ");
+                Console.WriteLine("Digite a altura:");
                 altura[i] = double.Parse(Console.ReadLine());
-
-                if (peso[i] > 18.5) 
             }
+
+            Console.Clear();
+
+
+            for (int i = 0; i <= 4; i++)
+            {
+                Console.WriteLine("Informe o nome: " + nome[i]);
+                Console.WriteLine("Informe a altura: " + altura[i]);
+                Console.WriteLine("Informe o peso: " + peso[i]);
+
+                Console.WriteLine("IMC: " + (peso[i] / (altura[i] * altura[i])));
+
+                if ((peso[i] / (altura[i] * altura[i])) <= 18.5)
+                {
+                    Console.WriteLine("Abaixo do peso ideal"); count--;
+                }
+
+
+                else if ((peso[i] / (altura[i] * altura[i])) <= 24.9)
+                {
+                    Console.WriteLine("Está no peso ideal"); count--;
+                }
+
+
+                else if ((peso[i] / (altura[i] * altura[i])) <= 29.9)
+                {
+                    Console.WriteLine("Levemente acima do peso"); count++;
+                }
+
+
+                else if ((peso[i] / (altura[i] * altura[i])) <= 34.9)
+                {
+                    Console.WriteLine("Obesidade I"); count++;
+                }
+
+
+                else if ((peso[i] / (altura[i] * altura[i])) <= 39.9)
+                {
+                    Console.WriteLine("Obesidade II"); count++;
+                }
+
+
+                else Console.WriteLine("Obesidade III"); count++;
+            }
+
+
+            Console.ReadKey();
+
         }
+
     }
 }
